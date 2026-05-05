@@ -1,8 +1,7 @@
-// src/components/Chat/MessageList.jsx
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext'
 
 export default function MessageList({ messages }) {
-  const { user } = useAuth();
+  const { user } = useAuth()
 
   return (
     <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -10,13 +9,10 @@ export default function MessageList({ messages }) {
         <div className="text-center text-gray-500 mt-10">No messages yet. Send one!</div>
       ) : (
         messages.map((msg, idx) => {
-          const isOwn = msg.senderId === user.id;
-          const isDecrypted = msg.plaintext !== undefined;
+          const isOwn = msg.senderId === user.id
+          const isDecrypted = msg.plaintext !== undefined
           return (
-            <div
-              key={idx}
-              className={`flex ${isOwn ? 'justify-end' : 'justify-start'}`}
-            >
+            <div key={idx} className={`flex ${isOwn ? 'justify-end' : 'justify-start'}`}>
               <div
                 className={`max-w-xs p-3 rounded-lg ${
                   isOwn
@@ -32,9 +28,9 @@ export default function MessageList({ messages }) {
                 </div>
               </div>
             </div>
-          );
+          )
         })
       )}
     </div>
-  );
+  )
 }

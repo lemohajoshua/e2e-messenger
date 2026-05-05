@@ -19,5 +19,5 @@ export default function ConversationList({ users, onSelect }) {
         )}
       </ul>
     </aside>
-  );
+  )
 }
